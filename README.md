@@ -4,12 +4,19 @@ Create a library for ESP-32 in C/C++ using esp-idf v5.0 stable for Parsing GPS d
 The code deals with GGA format of GPS data
 
 ## How to use
-include the library 
+1. include the library 
 > #include "GPS_parse.h"
-load the structure with the name GPSData
+2. load the structure with the name GPSData
+
 > GPSData GPSdoc
-Call the function 
+3. Call the function 
 >parse_gps_data(< a string packet>, &gpsData)
+
+
+By following these steps, you can include the library, load the `GPSData` structure, and parse GPS data using the provided function.
+
+Simply copy the above text and paste it into your `README.md` file.
+
 
 
 ## Attributes to access from the structure
