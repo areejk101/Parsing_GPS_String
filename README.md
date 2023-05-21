@@ -4,7 +4,10 @@ ESP-IDF
 # Parsing_GPS_String
 Create a library for ESP-32 in C/C++ using esp-idf v5.0 stable for Parsing GPS data from individual data in a struct. GPS data is usually in NMEA format
 
-The code deals with GGA format of GPS data
+- The code deals with GGA format of GPS data
+- Header file is in: components/GPS_parse/include/GPS_parse.h
+- Parseing function is in: components/GPS_parse/GPS_parse.c
+- unit test code is main.cpp
 
 ## How to use
 1. include the library 
