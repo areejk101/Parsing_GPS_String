@@ -23,8 +23,7 @@ int main() {
 		printf("Altitude Units: %c\n", gpsData.altitudeUnits);
 		printf("Mean Sea Level Height: %.2f\n", gpsData.meanSeaLevelHeight);
 		printf("Geoid Separation Units: %c\n", gpsData.geoidSeparationUnits);
-		printf("Time Since Last Differential Correction: %.2f\n",
-				gpsData.timeSinceLastDifferentialCorrection);
+		printf("Time Since Last Differential Correction: %.2f\n",gpsData.timeSinceLastDifferentialCorrection);
 		printf("Differential Station ID: %d\n", gpsData.differentialStationID);
 		printf("Checksum: %u\n", gpsData.checksum);
 	} else {
@@ -35,6 +34,7 @@ int main() {
 }
 ;
 
+// main function 
 void app_main(void) {
 	printf("Hello, ESP-IDF!\n");
 	main();
