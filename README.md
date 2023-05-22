@@ -44,3 +44,14 @@ Simply copy the above text and paste it into your `README.md` file.
 | timeSinceLastDifferentialCorrection | Time since the last differential correction (ignored if inactive) |
 | differentialStationID  | ID of the differential station (ignored if inactive) |
 | checksum               | Checksum validation value (in hexadecimal) |
+
+
+## Algorithm 
+1. input string and the structure
+2. Check for the validity of the string size and initiator
+3. Create your own bytewise checksum 
+4. Check if checksum is present in the string 
+5. Compare the two checksums
+6. use token method to splice the string using strtok_r() function
+7. assign the values to the attributes of the structure 
+
