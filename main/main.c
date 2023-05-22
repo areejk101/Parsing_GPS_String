@@ -5,14 +5,12 @@
 #include "GPS_parse.h"
 
 int main() {
-	const char *packet =
-			"$GPGGA,002153.000,3342.6618,N,11751.3858,W,1,10,1.2,27.0,M,-34.2,M,,0000*5E";
+	const char *packet ="$GPGGA,002153.000,3342.6618,N,11751.3858,W,1,10,1.2,27.0,M,-34.2,M,,0000*5E";
 	GPSData gpsData;
 	printf("%s\n", packet);
 
 	if (parse_gps_data(packet, &gpsData) == 0) {
-		printf(
-				"===============================================================\n");
+		printf("===============================================================\n");
 		printf("Time: %s\n", gpsData.currentTime);
 		printf("Latitude: %s\n", gpsData.latitude);
 		printf("Latitude Direction: %c\n", gpsData.latitudeDirection);
