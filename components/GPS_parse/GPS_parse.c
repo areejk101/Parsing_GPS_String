@@ -8,39 +8,44 @@ int parse_gps_data(const char *packet, GPSData *gpsData) {
 
 	char packetCopy[256]; // Assuming a maximum length for the packet
 	strncpy(packetCopy, packet, sizeof(packetCopy) - 1);
-	packetCopy[sizeof(packetCopy) - 1] = '\0'; // Ensure null termination
+	packetCopy[sizeof(packetCopy) - 1] = '\0'; // null termination
 
 	//printf("\ndebug 1\n");
-
+	// first error check. size and initiator presence
 	if (strlen(packet) < 7 || packet[0] != '$') {
 		printf("error no $ found\n");
 		return -1; // Invalid packet
 	}
+	
 	int i = 1;
 	int checksum = 0;
+	// create own checksum of the string
 	while (packet[i] != '*' && packet[i] != '\0') {
 		checksum ^= packet[i];
 		i++;
 	}
-
+	// second error check for presense of checksum  in the string
 	if (packet[i] != '*') {
 		printf("invalid checksum\n");
 		return -1; // Invalid packet
 	}
 
-	// Convert checksum from ASCII to integer
+	// Converting checksum from ASCII to integer of base 16 and storing in packetChecksum
 	char checksumStr[3];
 	strncpy(checksumStr, packet + i + 1, 2);
 	checksumStr[2] = '\0';
 	int packetChecksum = (int) strtol(checksumStr, NULL, 16);
-
+	
+	// third error check for validity of checksum 
+	// compareing the two checksums
 	if (checksum != packetChecksum) {
-		printf("error no $ found\n");
+		printf("error in string\n");
 		return -1; // Invalid packet
 	}
 
 	//printf("debug 2\n");
-
+	// using tokenizing method of splicing a string
+	
 	char *token;
 	char *rest = packetCopy;
 	int inc = 0;
@@ -105,5 +110,5 @@ int parse_gps_data(const char *packet, GPSData *gpsData) {
 
 	}
 
-	return 0; // Success
+	return 0;
 }
